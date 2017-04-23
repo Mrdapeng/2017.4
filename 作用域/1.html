@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*这时候的i是共享的，回调函数再取的是已经到6了，不会针对性的给循环的没个i创建一个作用域，这时候的i封闭在一个全局作用域中*/
+    //    for (var i = 0; i < 5; i++) {
+    //        setTimeout(function () {
+    //            console.log(i);
+    //        }, i * 1000);
+    //    }
+//    for (var i = 0; i < 5; i++) {
+//        (function (j) {
+//            setTimeout(function () {
+//                console.log(j);
+//            }, j * 1000)
+//        })(i);
+//    }
+
+    for (let j = 0; j < 5; j++) {
+        setTimeout(function () {
+            console.log(j);
+        }, 1000)
+
+    }
+
+</script>
+</html>

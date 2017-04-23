@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #div1 div {
+            height: 200px;
+            width: 200px;
+            background: #000;
+
+        }
+
+        #div1 div:hover {
+            width: 400px;
+        }
+
+        #div2 {
+
+            transition: width 2s ease;
+            -webkit-transition: width 2s ease;
+
+        }
+
+        #div3 {
+
+            transition: width  2s ease-in;
+            -webkit-transition: width 2s ease-in;
+
+
+        }
+
+        #div4 {
+
+            transition: width  2s linear;
+            -webkit-transition: width 2s linear;
+
+        }
+
+        #div5 {
+
+            transition: width  2s ease-in-out ;
+            -webkit-transition: width 2s ease-in-out;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="div1">
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+</div>
+
+
+</body>
+<script>
+
+</script>
+</html>

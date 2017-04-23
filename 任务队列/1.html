@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function show() {
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+            var pro = new Promise(function () {
+                console.log('bbb');
+            }).then(function () {
+                console.log('aaaa')
+            });
+
+            setTimeout(function () {
+                console.log(i)
+            }, 500);
+            console.log('haha');
+        }
+    };
+    show();
+</script>
+</html>

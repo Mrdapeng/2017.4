@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="http://www.baidu.com">aaa</a>
+</body>
+<script>
+
+    function show(e) {
+        console.log(e);
+    }
+    show(navigator.userAgent);
+    show(window.parent);
+    show(window.self);
+    show(window.top);
+    show(window.window);
+    show(window.opener);
+    /*screenLeft也是相对于浏览器左上角的位置进行定位*/
+    show(window.screenLeft);
+    show(window.screenTop);
+    show(window.history);
+    document.write(Date());
+</script>
+</html>

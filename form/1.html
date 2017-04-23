@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="formName" action="">
+    <input name="inputName" type="text" value="name">
+    <!--<input name="inputName" type="number" value="name">-->
+    <input type="submit">
+</form>
+
+</body>
+<script>
+    var fm = document.formName;
+    var fm = document.forms[0];
+    //    alert(fm===fm);
+    //    alert(fm.elements.length);
+    //    alert(document.formName.inputName.value);
+    document.formName.onsubmit = function () {
+        this.reset();
+
+    }
+</script>
+</html>

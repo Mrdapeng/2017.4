@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function show() {
+        var body = document.body;
+        var ele = document.createElement('div');
+        ele.style.backgroundColor = '#0c5eff';
+        ele.style.width = '200px';
+        ele.style.height = '200px';
+        ele.innerHTML='aa';
+        var text = document.createTextNode('aaaa');
+        body.appendChild(ele);
+        body.appendChild(text);
+
+    }
+    show();
+</script>
+
+
+</body>
+</html>

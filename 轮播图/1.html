@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            margin: 100px auto;
+            width: 680px;
+            position: relative;
+        }
+
+        #imgs img {
+            display: none;
+            width: 100%;
+        }
+
+        #imgs img.selected {
+            display: block;
+        }
+
+        #tab {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tab li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background: #000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        #tab li.selected {
+            background: orange;
+        }
+
+        #arrow {
+            left: 10px;
+            bottom: 10px;
+            position: absolute;
+        }
+
+        #arrow span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+        <img class="selected" src="img/1.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/3.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+    </div>
+    <div id="tab">
+        <ul>
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div id="arrow">
+        <span id="previous">&lt</span>
+        <span id="next">&gt</span>
+    </div>
+</div>
+</body>
+<script>
+    var otab = document.getElementById('tab');
+    var ali = otab.getElementsByTagName('li');
+    var imgs = document.getElementById('imgs');
+    var aimg = imgs.getElementsByTagName('img');
+    var container = document.getElementById('container');
+    var onext = document.getElementById('next');
+    var oprevious = document.getElementById('previous');
+    var timer;
+    var inow = 0;
+    onext.onclick = oprevious.onclick = function () {
+
+        if (this == onext) {
+            inow++;
+            if (inow == aimg.length) {
+                inow = 0;
+            }
+        } else {
+            inow--;
+            if (inow == -1) {
+                inow = aimg.length - 1;
+            }
+        }
+
+        changeImg(inow);
+    };
+    play();
+    container.onmouseover = function () {
+        clearInterval(timer);
+    };
+    container.onmouseout = function () {
+
+        play();
+    };
+    function changeImg(idx) {
+
+        for (var i = 0; i < ali.length; i++) {
+
+            ali[i].className = '';
+
+            aimg[i].className = '';
+
+        }
+        aimg[idx].className = 'selected';
+        ali[idx].className = 'selected';
+
+
+    }
+    for (var i = 0; i < ali.length; i++) {
+        ali[i].index = i;
+        ali[i].onmouseover = function () {
+            for (var j = 0; j < ali.length; j++) {
+                ali[j].className = '';
+                aimg[j].className = '';
+            }
+
+            this.className = 'selected';
+            aimg[this.index].className = 'selected';
+        }
+
+    }
+
+    function play() {
+        timer = setInterval(function () {
+            onext.onclick();
+        }, 900);
+    }
+</script>
+</html>

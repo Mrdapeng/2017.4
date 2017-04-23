@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<select id="sltProvince">
+    <option value="1" data-flag="3">3</option>
+    <option value="2" data-flag="2">2</option>
+    <option value="3" data-flag="1">1</option>
+</select>
+<button id="sort"> 排序</button>
+</body>
+<script>
+    window.onload = function (parameters) {
+        var sltProvice = document.getElementById("sltProvince");
+        var ops = sltProvice.getElementsByTagName("option");
+        var arrOps = Array.prototype.slice.call(ops, 0);
+        arrOps.sort(function (a, b) {
+            return b.attributes["data-flag"].value - a.attributes["data-flag"].value;
+        });
+       ops=null;
+        arrOps.map(function (op) {
+            sltProvice.appendChild(op);
+        });
+    }
+</script>
+</html>

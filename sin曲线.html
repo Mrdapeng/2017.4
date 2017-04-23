@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    //画正弦曲线
+    //dot 原点
+    //amplitude    振幅 -- A
+    //initialPhase 初相 -- φ
+    //setover 偏距 -- k
+    //palstance 角速度 -- ω
+    //len 周期数
+    function drawSinusoid(dot, amplitude,initialPhase,palstance,setover, len, opts){
+        var color = opts&&opts.color?opts.color:"DarkRed"; //曲线的颜色
+        var max = len*2*Math.PI/w; //x的最大值
+        //var x = -2*Math.PI/w/3;
+        var x = 0; //x的初值
+        var pre = [dot[0]+x, dot[1]+(amplitude*Math.sin(palstance*x+initialPhase)+setover)]; //y的初值
+        for(;x < max;x+=5){ //每五个单位画一条线
+            var cur = [dot[0]+x, dot[1]+(amplitude*Math.sin(palstance*x+initialPhase)+setover)];
+            drawLine(pre, cur, {color: color}); // 画线
+            pre = cur;
+        }
+        var d = Math.PI/(2*w);
+        for(var x =0;x < max;x+=d){//描点
+            var cur = [dot[0]+x, dot[1]+(amplitude*Math.sin(palstance*x+initialPhase)+setover)];
+            drawPoint({
+                pw:3,ph:3,color:'DarkRed',point: cur
+            });
+        }
+
+        var pend = [dot[0]+max, dot[1]+(amplitude*Math.sin(palstance*max+initialPhase)+setover)];
+        drawPoint({
+            pw:3,ph:3,color:'DarkRed',point: pend
+        });
+        drawLine(pre, pend);
+    }
+
+
+</script>
+</html>
