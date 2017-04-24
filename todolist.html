@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="list">
+        <h3>todo lisit </h3>
+        <ul id="list">
+            <li>123456</li>
+            <li>456789</li>
+            <li>101112</li>
+        </ul>
+    </div>
+    <div>
+        <input id="in" type="text" value="aaaa">
+    </div>
+    <div id="btns">
+        <button id="add">
+            add
+        </button>
+        <button id="remove">
+            remove
+        </button>
+    </div>
+</div>
+</body>
+<script>
+    var input = document.getElementById('in');
+    var add = document.getElementById('add');
+    var remove = document.getElementById('remove');
+    var list = document.getElementById('list');
+
+    add.onclick = function () {
+        var inputText = input.value;
+        console.log(inputText);
+        var message = document.createElement('li');
+        message.innerHTML = inputText;
+        list.appendChild(message);
+
+    };
+    remove.onclick = function () {
+        var list=document.getElementById("list");
+        list.removeChild(list.childNodes[list.childNodes.length-1]);
+
+    }
+</script>
+</html>

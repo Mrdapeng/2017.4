@@ -36,6 +36,37 @@
 
 var oTbody = document.getElementsByTagName('tbody')[0];
 var aTr = oTbody.getElementsByTagName('tr');
+var oSum = document.getElementById('sum');
+var btn_check = getClass('btn-check', oTbody);
+/*老师版本*/
+// oSum.onclick = function () {
+//
+//     for (var i = 0; i < aTr.length; i++) {
+//         if (oSum.checked === true) {
+//
+//             aTr[i].className = 'selected';
+//             btn_check[i].checked = true;
+//         } else {
+//             aTr[i].className = '';
+//             btn_check[i].checked = false;
+//         }
+//
+//     }
+// };
+// oSum.onclick = function () {
+//     console.log(this.checked);
+//     for (var i = 0; i < btn_check.length; i++) {
+//
+//         if (this.checked === true) {
+//             aTr[i].className = 'selected';
+//         } else {
+//             aTr[i].className = '';
+//         }
+//         btn_check[i].checked = this.checked;
+//     }
+//
+//
+// }
 
 for (var i = 0; i < aTr.length; i++) {
     aTr[i].onclick = function () {
@@ -50,15 +81,34 @@ for (var i = 0; i < aTr.length; i++) {
         }
         //所有被选中的tr
         var aCheckTr = getClass('selected', oTbody);
-        var oSum = document.getElementById('sum');
         if (aCheckTr.length == aTr.length) {
             oSum.checked = true;
         } else {
-            oSum.checked=false;
+            oSum.checked = false;
         }
 
     }
 
-
 }
+
+var oThead = document.getElementsByTagName('thead')[0];
+var oTr = oThead.getElementsByTagName('tr')[0];
+oTr.onclick = function (e) {
+    var target = e.target || event.srcElement;
+    if (target != oSum) {
+        oSum.checked = !oSum.checked;
+    }
+
+    for (var i = 0; i < aTr.length; i++) {
+            if (this.checked === true) {
+                aTr[i].className = 'selected';
+            } else {
+                aTr[i].className = '';
+            }
+            btn_check[i].checked = oSum.checked;
+        }
+
+
+};
+
 

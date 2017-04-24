@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //    var obj = {
+    //        id: 'awesome',
+    //        cool: function () {
+    ////            var self = this;
+    //
+    //            console.log(this.id);
+    //        }
+    //    };
+    //    var id = 'not';
+    //    obj.cool();
+    //
+    //
+    //    setTimeout(obj.cool(), 100);
+
+    function showname() {
+
+        return this.name.toUpperCase();
+    }
+    function speak() {
+
+        var speakString = 'hello i am ' + showname.call(this);
+        console.log(speakString);
+    }
+
+    var p1 = {
+        name: 'p1'
+    }
+    var p2 = {
+        name: 'p2'
+    }
+//        speak.call(p1);
+//        speak.call(p2);
+    console.log(showname.call(p1));
+    console.log(showname.call(p2));
+
+
+</script>
+</html>
