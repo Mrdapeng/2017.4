@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    function mixin(soucreObj, targetObj) {
+
+        for (var key in soucreObj) {
+            if (!key in targetObj) {
+                targetObj[key] = soucreObj[key];
+            }
+        }
+
+        return targetObj;
+    }
+
+    var jiaotong = {
+        engines: 1,
+        run: function () {
+            console.log('i can run');
+        },
+
+        dirve: function () {
+            this.run();
+            console.log('i can drive');
+        }
+
+    }
+
+    var car = mixin(jiaotong, {
+
+
+        whells: 4,
+        dirve: function () {
+            console.log('rolling' + this.whells + 'wheels!');
+        }
+    });
+
+
+</script>
+</html>

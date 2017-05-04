@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+<script>
+    function controller() {
+
+        this.erros = [];
+
+    }
+
+    controller.prototype.showDialog = function (title, msg) {
+
+    }
+    controller.prototype.succes = function (msg) {
+        this.showDialog('succes', msg);
+    }
+    controller.prototype.failure = function (erro) {
+        this.showDialog('failuer', erro);
+        this.erros.push(erro);
+    }
+
+    function loginController() {
+
+        controller.call(this);
+
+    }
+    loginController.prototype = Object.create(controller.prototype);
+    loginController.prototype.getUser = function () {
+        return document.getElementById('userid').value;
+    };
+
+    loginController.prototype.getPassWord = function () {
+        return document.getElementById('pwd').value;
+    };
+
+    loginController.prototype.vaildateEntry = function (user, pwd) {
+        user = user || this.getUser;
+        pwd = pwd || this.getPassWord;
+        if (!(user && pwd)) {
+            return this.failure(
+                'please enter  a username & password'
+            )
+        }
+        else if (pwd.length < 5) {
+            return this.failure(' your password is not long');
+        }
+        return true;
+    }
+    loginController.prototype.failure = function (err) {
+
+        controller.prototype.failure.call(this, 'login invalid ' + err);
+
+    };
+
+</script>
+</html>

@@ -130,7 +130,7 @@
 
 .select-box.selected {
     color: #000;
-    box-shadow: 1px  1px 5px 3px rgba(0,0,0,0.15) inset;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.15) inset;
 }
 
 .sel-btn {
@@ -249,15 +249,108 @@
     top:0;*/
 }
 
+/*遮罩层*/
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.mask .content {
+    background: #fff;
+    width: 423px;
+    height: 498px;
+    position: absolute;
+    left: 50%;
+    /*top: 50%;*/
+    top: -249px;
+    margin-left: -212px;
+    margin-top: -249px;
+}
+@keyframes show {
+    100%{
+        top:50%;
+    }
+}
+.dialog-title {
+    height: 30px;
+    background: #f4f4ff;
+    text-align: right;
+    border-bottom: 1px solid #efefef;
+    line-height: 30px;
+    font-size: 24px;
+}
+
+.dialog-close {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.dialog-body {
+    text-align: center;
+}
+
+.dialog-body img {
+    width: 265px;
+    height: 395px;
+    margin: 10px 0;
+}
+
+.dialog-prev, .dialog-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #fff;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+}
 
 
+.dialog-prev{
+    left: 95px;
+}
+.dialog-next{
+    right: 95px;
+}
 
+.dialog-btns{
+    height: 40px;
+    background: #f4f4ff;
+    border-top:1px solid #efefef;
+    padding: 10px 15px;
+}
+.dialog-btns span{
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    padding: 0 10px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
 
+.prev-btn{
+    background: #e5412d;
+    
+}
+.next-btn{
+    background: #5cc7dd;
+}
+.slide-btn{
+    background: #609450;
+}
+.dialog-btns span.download{
+    background: #f3f3f3;
+    color: #000;
 
-
-
-
-
-
-
-
+    border:1px solid #cccccc;
+}

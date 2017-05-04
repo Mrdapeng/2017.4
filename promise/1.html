@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function asyncFunction() {
+
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('Async Hello world');
+            }, 16);
+        });
+    }
+
+    asyncFunction().then(function (value) {
+        console.log(value);    // => 'Async Hello world'
+    }).catch(function (error) {
+
+        console.log(error);
+    });
+
+
+    asyncFunction();
+    
+</script>
+</html>

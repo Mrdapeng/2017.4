@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    function foo(num) {
+    //        console.log('foo:' + num);
+    //        this.count++;
+    //    }
+    //    foo.count = 0;
+    //    for (var i = 0; i < 10; i++) {
+    //        if (i>5) {
+    //            foo.call(foo,i);
+    //        }
+    //    }
+    //    function baz() {
+    //
+    //        console.log(this);
+    //        console.log('baz');
+    //        debugger;
+    //        bar();
+    //
+    //
+    //    }
+    //    function bar() {
+    //
+    //        console.log(this);
+    //        debugger;
+    //        console.log('bar');
+    //        foo();
+    //    }
+    //
+    //    function foo() {
+    //        console.log(this);
+    //        debugger;
+    //        console.log('foo');
+    //    }
+    //    baz();
+//    var a = 2;
+//    function foo() {
+//        console.log(this.a);
+//
+//    }
+//
+//
+//    var obj2 = {
+//        a: 2,
+//        foo: foo
+//    };
+//    var obj1 = {
+//        a: 42,
+//        obj2: obj2
+//    }
+//
+//
+//    obj1.obj2.foo();
+////    obj.foo();
+//
+
+
+    function foo() {
+        console.log(this.a);
+    }
+    function dofoo(fn) {
+
+        fn();
+    }
+
+    var obj={
+        a:2,
+        foo:foo
+    }
+
+    var a='oops,global';
+    dofoo(obj.foo);
+
+
+</script>
+</html>

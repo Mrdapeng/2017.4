@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        a: 2
+    };
+    console.log(obj.a);
+
+
+    var anotherobj={
+        a:2
+    };
+/*将myObj的prototype绑定到anotherObj上,在myobj上寻找不到a的时候会上其原型链上进行寻找。*/
+    var myObj=Object.create(anotherobj);
+
+    for(var key in myObj){
+        console.log(key);
+    }
+
+
+    console.log(myObj.a);
+    /*in查找对象是否存在时候还会检查原型链*/
+</script>
+</html>

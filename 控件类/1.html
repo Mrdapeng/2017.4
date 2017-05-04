@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    function widget(width, height) {
+        this.width = width || 50;
+        this.height = height || 50;
+        this.$elem = null;
+    }
+
+
+    widget.prototype.render = function (where) {
+        if (this.$elem) {
+            this.$elem.css({
+                width: this.width + 'px',
+                height: this.height + 'px',
+            }).appendTo(where);
+        }
+
+
+    }
+
+    function Button(width, height, label) {
+        widget.call(this, width, height);
+        this.label = label || 'default';
+        this.$elem = $('<button>').text(this.label);
+
+    }
+
+    Button.prototype = Object.create(widget.prototype);
+    Button.prototype.render = function ($where) {
+        widget.prototype.render.call(this, $where);
+        this.$elem.onclick(this.onclick.bind(this));
+    /}
+
+
+</script>
+</html>

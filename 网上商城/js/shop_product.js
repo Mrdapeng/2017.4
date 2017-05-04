@@ -45,11 +45,74 @@ document.body.onclick = function (e) {
     /*ie取这个 取事件源 event.srcElement*/
     var target = e.target || event.srcElement;
 
-    if (target != oBtn && target != op && target !=oSpan){
-        oUL.style.display='none';
-    };
+    if (target != oBtn && target != op && target != oSpan) {
+        oUL.style.display = 'none';
+    }
+    ;
 
 };
-// setInterval(function(){
-// 	console.log("hahh");
-// },3000)
+
+/*弹层*/
+
+
+var oSmallImg = getClass('small-img')[0];
+var aDialogLi = oSmallImg.getElementsByTagName('li');
+var oDialogBox = getClass('mask')[0];
+var oDialogBody = getClass('dialog-body', oDialogBox)[0];
+var oDialogImg = oDialogBody.getElementsByTagName('img')[0];
+var oDialogClose = getClass('dialog-close', oDialogBox)[0];
+var oDialogPrev = getClass('dialog-prev', oDialogBox)[0];
+var oDialpgNext = getClass('dialog-next', oDialogBox)[0];
+var oSlideDown = getClass('slide-btn')[0];
+var oContent = getClass('content',oDialogBox)[0];
+var iNow = 0;
+for (var i = 0; i < aDialogLi.length; i++) {
+    aDialogLi[i].index = i;
+    aDialogLi[i].onclick = function () {
+        var oImg = this.getElementsByTagName('img')[0];
+        oDialogBox.style.display = 'block';
+        oDialogImg.src = oImg.src;
+        oContent.style.animation = 'show 1s ease forwards';
+        iNow = this.index;
+    }
+}
+// 关闭弹层
+oDialogBox.onclick = function (e) {
+    var target = e.target || event.srcElement;
+    if (target == oDialogBox || target == oDialogClose) {
+        oDialogBox.style.display = 'none';
+    }
+};
+oDialpgNext.onclick = oDialogPrev.onclick = function () {
+    if (this == oDialogPrev) {
+        iNow--;
+        if (iNow == -1) {
+            iNow = aDialogLi.length - 1;
+        }
+        var prevLi = aDialogLi[iNow];
+        oDialogImg.src = prevLi.getElementsByTagName('img')[0].src;
+    } else {
+        iNow++;
+        if (iNow == aDialogLi.length) {
+            iNow = 0;
+        }
+        var prevLi = aDialogLi[iNow];
+        oDialogImg.src = prevLi.getElementsByTagName('img')[0].src;
+    }
+
+};
+var timer = '';
+
+oSlideDown.onclick = function () {
+    if (timer) {
+        clearInterval(timer);
+        timer = '';
+    } else {
+        timer = setInterval(function () {
+            oDialogPrev.onclick();
+
+        }, 1000)
+    }
+}
+
+

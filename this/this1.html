@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+
+    function define() {
+        return this.name.toUpperCase();
+    }
+
+    function speak() {
+        var greetin = 'hello' + define.call(this);
+        console.log(greetin);
+    }
+
+    var me = {
+        name: 'kyle',
+
+    }
+    var you = {
+        name: 'rader'
+    }
+
+    console.log(define.call(me));
+    console.log(define.call(you));
+
+    speak.call(me);
+    speak.call(you);
+
+
+    name = 'ccc';
+    function foo() {
+        foo.name='aaa';
+
+        return 'a';
+    }
+
+    (function (num) {
+        for (var i = 0; i < num; i++) {
+            console.log(i)
+        }
+    })(7);
+    console.log(foo());
+
+</script>
+</html>

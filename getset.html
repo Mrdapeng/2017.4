@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+var obj={
+    a:4
+
+}
+
+console.log(obj.a);
+console.log(obj.b);
+
+var obj2={
+    get a(){
+        return 2;
+    }
+};
+console.log(obj2.a);
+
+var obj3={
+    set a(val){
+        this._a_=val*2;
+    },
+    get a(){
+      return this._a_;
+    }
+
+}
+obj3.a=2;
+console.log(obj3.a);
+</script>
+</html>
