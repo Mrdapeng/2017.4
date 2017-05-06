@@ -59,5 +59,22 @@
 
     };
 
+    function AthController(login) {
+
+        controller.call(this);
+        this.login = login;
+
+    }
+    AthController.prototype = Object.create(controller.prototype);
+    AthController.prototype.server=function (url,data) {
+
+        return $.ajax({
+            url:url,
+            data:data
+        });
+    }
+
+
+
 </script>
 </html>
