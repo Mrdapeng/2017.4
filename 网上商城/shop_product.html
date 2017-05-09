@@ -227,7 +227,44 @@
         </div>
     </div>
 </div>
-<script src="js/common.js"></script>
-<script src="js/shop_product.js"></script>
+<!--<script src="js/common.js"></script>-->
+<!--<script src="js/shop_product.js"></script>-->
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        var $selBtn = $('.sel-btn'), $selMenu = $('.sel-menu');
+
+        $selBtn.on('click', function () {
+            $selMenu.toggle();
+
+        });
+        $selBtn.on('mousedown', function () {
+            $('#select-box').addClass('selected');
+
+        });
+        $selBtn.on('mouseup', function () {
+            $("#select-box").removeClass('selected');
+//            $selMenu.toggle();
+        });
+
+        $("li", $selMenu).on('click', function () {
+            $('p', $selBtn).html($(this).html());
+            $selMenu.hide();
+
+        });
+
+        $(document).on('click', function (e) {
+            if (e.target != $selBtn[0] && e.target != $('p', $selBtn)[0] && e.target != $('span', $selMenu)[0]) {
+
+                $selMenu.hide();
+            }
+
+        });
+        $('.btns-box li').on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $(".tab-item").eq($(this).index()).show().siblings().hide();
+        })
+    });
+</script>
 </body>
 </html>

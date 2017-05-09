@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+    var a = {};
+    Object.defineProperty(a, "b",
+        {value: 123});
+    console.log(a.b);
+
+    /*第一个参数目标对象
+    * 第二个参数是给目标对象定义的属相或方法的名字。
+    * 第三个参数是目标所拥有的特性
+    * 详解第三个参数
+    * descriptor value:属性的值
+    * writable如果是false就是只能是只读了
+    * configurable 是总开关 一旦是false那么上三种属性就不能修改了
+    * enumerable:能否在for in循环中遍历出来或在Object.keys中列举出来。
+    * get:
+    * set：
+    * 上二个方法是实现观察者模式的关键方法，当访问属性的时候是get，设置属性的时候是set。
+    * */
+
+
+
+    var b={};
+    Object.defineProperty(b,"c",{
+        value:456,
+        writalbe:false,
+        enumerable:false,
+        configurable:false
+    });
+    console.log(b.c);
+//    configurable
+    /*设置后除enumberable之外的属性都不能设置了*/
+//    总开关，第一次设置 false 之后，，第二次什么设置也不行了，比如说
+    var c= {};
+    Object.defineProperty(c,"b",{
+        configurable:false
+    })
+    Object.defineProperty(c,"b",{
+        configurable:true
+    })
+</script>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aaa</title>
+    <style>
+        <
+        style >
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            border: 1px solid #000;
+            width: 400px;
+            height: 200px;
+        }
+
+        #content {
+            float: left;
+        }
+
+        #content div {
+            width: 100px;
+            height: 60px;
+            background: #cccccc;
+            float: left;
+            margin: 5px;
+        }
+
+        #skin-btns span {
+            float: left;
+            margin: 2px;
+        }
+
+        .skin1 {
+            width: 15px;
+            height: 15px;
+            background: #999999;
+        }
+
+        .skin2 {
+            width: 15px;
+            height: 15px;
+            background: #b0d40f;
+        }
+
+        .skin3 {
+            width: 15px;
+            height: 15px;
+            background: #f8b33a;
+        }
+
+        .skin4 {
+            width: 15px;
+            height: 15px;
+            background: #0abdce;
+
+        }
+
+        .skin5 {
+            width: 15px;
+            height: 15px;
+            background: #e11355;
+        }
+
+        .skin6 {
+            width: 15px;
+            height: 15px;
+            background: #c151da;
+        }
+
+        #skin-btns .skin1.selected {
+            background: url("theme.gif") 0 -15px no-repeat;
+
+        }
+
+        #skin-btns .skin2.selected {
+            background: url("theme.gif") -20px -15px no-repeat;
+
+        }
+
+        #skin-btns .skin3.selected {
+            background: url("theme.gif") -40px -15px no-repeat;
+
+        }
+
+        #skin-btns .skin4.selected {
+            background: url("theme.gif") -60px -15px no-repeat;
+
+        }
+
+        #skin-btns .skin5.selected {
+            background: url("theme.gif") -80px -15px no-repeat;
+
+        }
+
+        #skin-btns .skin6.selected {
+            background: url("theme.gif") -100px -15px no-repeat;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="skin-btns">
+        <span skin-color="#999999" class="skin1"></span>
+        <span skin-color="#b0d40f" class="skin2"></span>
+        <span skin-color="#f8b33a" class="skin3"></span>
+        <span skin-color="#0abdce" class="skin4"></span>
+        <span skin-color="#e11355" class="skin5"></span>
+        <span skin-color="#c151da" class="skin6"></span>
+
+    </div>
+    <div id="content">
+        <div class="news1">实时新闻</div>
+        <div class="news1">娱乐新闻</div>
+    </div>
+
+
+</div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $("#skin-btns span").on("click", function () {
+            $(this).addClass('selected').siblings().removeClass('selected');
+            $(".news1").css('background', $(this).attr('skin-color'));
+        })
+
+
+    })
+</script>
+</html>

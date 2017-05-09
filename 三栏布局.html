@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+            padding: 0 200px;
+            font-size: 50px;
+        }
+
+        .left{
+            width: 200px;
+            height: 1000px;
+            background: orange;
+            float: left;
+            position: relative;
+            /*margin-left:-100%;*/
+            /*left:-200px;*/
+        }
+
+        .middle{
+            width: 100%;
+            height: 1000px;
+            background: blue;
+            float: left;
+            position: relative;
+        }
+
+        .right{
+            width: 200px;
+            height: 1000px;
+            background: orange;
+            float: left;
+            position: relative;
+            margin-left:-200px;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="middle"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>
