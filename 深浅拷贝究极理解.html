@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    /*
+    * 基本类型有Undefined，Null，Boolean，Symbol，Number和String。
+    * 这些基本类型的是按值传值，存储在栈里，当一个变量想一个变量复制基本类型的值，会创建这个值的一个副本。
+    * +++最重要的是不能给基本类型的值添加属性
+    *浅拷贝是复制的指针，修改后会对原来对象产生影响，而深拷贝会拷贝后自定义值后不受原来对象的影响。
+    * */
+    var obj = {
+        name: 'wsscat',
+        age: 0
+    }
+    var deepCopy = function (source) {
+
+        var result = {};
+        for (var key in source) {
+            /*进行递归之后深拷贝
+            *
+            * 判断每一个属性还是不是对象，是的话就赋值，之后递归调用这个函数，进行深复制。
+            * */
+            if (typeof  source[key] === 'object') {
+                result [key] = deepCopy(source[key]);
+            } else {
+                result[key] = source[key];
+            }
+        }
+        return result;
+    };
+    var obj3 = deepCopy(obj);
+    obj.name = 'hh';
+    console.log(obj);
+    console.log(obj3);
+    var b=2123;
+    b.aa='ccc';
+    console.log(b.aa);
+</script>
+</html>
