@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .dialog-box {
+            width: 400px;
+            height: 300px;
+            background: #ccc;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+        }
+
+        .dialog-box .title {
+            height: 20px;
+            background: #5cc7dd;
+        }
+
+
+        .left-text {
+            float: left;
+        }
+        .right-text {
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="dialogShow=true"> 登录</button>
+    <button @click="regShow=true">注册</button>
+    <div v-show="dialogShow">
+        <my-dialog @close="dialogShow=false">
+            <div class="dialog-title" slot="title">
+                <span class="left-text">登录</span>
+            </div>
+            <div class="dialog-content" slot="content">
+                用户名:<input type="text">
+                <br>
+                密码:<input type="password">
+
+            </div>
+        </my-dialog>
+    </div>
+    <div v-show="regShow">
+        <my-dialog @close="regShow=false">
+            <div class="dialog-title" slot="title">
+                <span class="left-text">注册</span>
+            </div>
+            <div class="dialog-content" slot="content">
+                用户名:<input type="text">
+                <br>
+                密码:<input type="password">
+
+            </div>
+        </my-dialog>
+    </div>
+</div>
+</body>
+<script src="vue.js"></script>
+<script id="dialog" type="text/x-template">
+    <div class="dialog-box">
+        <div class="title">
+            <slot name="title"></slot>
+            <span class="right-text" @click="$emit('close')">[X]</span>
+        </div>
+        <div class="content">
+            <slot name="content"></slot>
+        </div>
+    </div>
+</script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            dialogShow: false,
+            regShow: false
+        },
+
+        components: {
+            myDialog: {
+                template: "#dialog",
+
+            }
+        }
+    })
+</script>
+</html>

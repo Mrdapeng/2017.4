@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <childs msg="aaa"></childs>
+    <child2 msg2="bbb"></child2>
+    <code-Man speed="100"></code-Man>
+    <temp></temp>
+</div>
+</body>
+<script src="vue.js"></script>
+<script   id="temp" type="x-template">
+    <div>
+        <h1>hhhh</h1>
+    </div>
+</script>
+<script>
+    /*
+     * 自定义组件复习 全局注册和局部注册
+     * props接受要设置的属性值 而且 书写格式为props["属性名"]
+     * 还有就是自定义组件的时候 要注意大小写问题 属性的设置最好还都是小写
+     * 驼峰命名法的时候 需要加 -
+     * 例如 myMsg 应写成 my-Msg
+     * */
+    Vue.component('childs', {
+        template: '<div>{{msg}}</div>',
+        props: ['msg']
+    });
+    new Vue({
+        el: '#app',
+        components: {
+            child2: {
+                props: ['msg2'],
+                template: '<h1>{{msg2}}</h1>'
+            },
+            codeMan: {
+                props: ["speed"],
+                template: '<h1>{{speed}}</h1>'
+            },
+            temp:{
+                template:"#temp"
+            }
+        }
+    })
+</script>
+</html>

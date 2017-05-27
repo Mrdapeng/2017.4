@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="name">
+    <input type="text" v-model="className">
+    <button @click="add">add</button>
+    <br>
+    <ul>
+        <li v-for="(item, index) in items">
+            <span>{{item.name}}</span>     <span>{{item.className}} </span>
+            <button  @click="delte(index)">del</button>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            className: '',
+            items: []
+        },
+        methods: {
+            add: function () {
+
+                this.items.push({name: this.name, className: this.className});
+                this.name = '';
+                this.className = '';
+
+            },
+            delte: function (index) {
+                this.items.splice(index,1)
+            }
+        }
+    });
+</script>
+</html>

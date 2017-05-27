@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function haveBreakFirst(food1, food2, callback) {
+        console.log(food1 + food2 + "is eating");
+        if (callback && typeof callback === 'function') {
+            console.log('i am be callBacked');
+            callback();
+        }
+    }
+
+    haveBreakFirst('猪皮', '香油', function () {
+        console.log('i was a callBack');
+    })
+</script>
+</html>

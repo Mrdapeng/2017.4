@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <div>
+        parent <input type="text" v-model="msg">
+    </div>
+
+        <my-bind :msg="msg"></my-bind>
+
+
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    Vue.component('my-bind', {
+        props: ['msg'],
+        template: '<div>\
+            Child component:\
+            <input type="text" v-model="msg" >\
+      </div>'
+    });
+
+    new Vue({
+        el: "#app",
+        data: {
+            msg: 'hhh'
+        },
+        methods: {}
+    })
+
+
+</script>
+</html>

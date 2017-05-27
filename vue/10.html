@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <simple-count></simple-count>
+    <simple-count></simple-count>
+    <simple-count></simple-count>
+
+</div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    //    Vue.component('child', {
+    //        template: '<div> hhh</div>'
+    //    });
+    //    var nodes = {
+    //        template: '<div> a custom compoent!</div>'
+    //    }
+    //    new Vue({
+    //        el: '#app',
+    //
+    //        components: {
+    //            "nodes": nodes
+    //        }
+    //    })
+
+    var data = {counter: 0};
+    Vue.component('simple-count', {
+        template: '<button @click="counter+=1">{{counter}}</button>',
+        data: function () {
+            return {
+                counter:0
+            }
+        }
+    })
+
+    new Vue({
+        el:"#app"
+    })
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    sessionStorage.setItem('site', 'www.haha.com');
+    localStorage.setItem('site2', 'www.heihei.com');
+    var value = sessionStorage.getItem('site');
+    var value2 = localStorage.getItem('site2');
+    console.log(value);
+    console.log(value2);
+
+    sessionStorage.removeItem('site');
+    localStorage.removeItem('site2');
+    console.log(value);
+    console.log(value2);
+    /*clear清除所有的key/value
+
+     用途：清除所有的key/value
+     用法：.clear()
+     代码示例：
+
+     sessionStorage.clear(); 	localStorage.clear();
+
+
+     if(window.addEventListener){
+     	    window.addEventListener("storage",handle_storage,false);
+      }else if(window.attachEvent)
+      {
+            window.attachEvent("onstorage",handle_storage);
+       }
+        function handle_storage(e){
+                if(!e){
+              e=window.event;}
+        }
+     */
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>aaa</h1>
+    <min></min>
+    <my-component></my-component>
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+    //    var pro = Vue.extend({
+    //        template: '<p>{{fistname}}{{lastname}} aka {{alias}}</p>',
+    //        data: function () {
+    //            return {
+    //                fistname: 'hhh',
+    //                lastname: 'white',
+    //                alias: 'chichichi'
+    //            }
+    //        }
+    //    })
+    //
+    //
+    //    new pro().$mount('#app');
+    var min = Vue.extend(
+        {
+            template: '<p>hahha</p>'
+        }
+    );
+    Vue.component('my-component',{
+        template:'<h1>{{name}}<h1/>',
+        data:function () {
+            return {
+                name:'hhh'
+            }
+        }
+    })
+    Vue.component("min", min);
+
+    new Vue(
+        {
+            el: '#app'
+        }
+    )
+
+</script>
+</html>
