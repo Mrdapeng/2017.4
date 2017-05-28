@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+   父亲的属性:_____ <input type="text" v-model="parentMsg">
+    <br>
+
+    孩子的属性:_____<child :my-message="parentMsg"></child>
+</div>
+</body>
+<script src="vue.js"></script>
+<!--<script type="text/x-template">-->
+
+<!--</script>-->
+<script>
+
+new Vue({
+    el:"#app",
+    data:{
+        parentMsg:'我是父亲'
+    },
+    components:{
+        "child":{
+            props:['myMessage'],
+//            template:'<span>{{myMessage}}</span>'
+            template:'<input type="text" v-model="myMessage">'
+
+        }
+    }
+})
+</script>
+</html>
