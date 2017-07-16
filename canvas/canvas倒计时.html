@@ -154,7 +154,10 @@
     var RADUIS = 8
     var MARGIN_LEFT = 60
     var MARGITN_TOP = 30
-    var endTime = new Date(2017, 6, 19, 18, 47, 52)
+//    var endTime = new Date(2017, 6, 19, 18, 47, 52)
+    var endTime=new Date()
+    endTime.setTime(endTime.getTime()+3600*1000*Math.random()+3600*1000)
+
     var curShowTimeSeconds = 0
     var balls = []
     const colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800", "#FF4444", "#CC0000"]
@@ -255,7 +258,7 @@
                 addBalls(MARGIN_LEFT + 54 * (RADUIS + 1), MARGITN_TOP, parseInt(Curminutes % 10))
             }
             if (parseInt(Curseconds / 10) !== parseInt(nextSeconds / 10)) {
-                addBalls(MARGIN_LEFT + 78 * (RADUIS + 1), MARGITN_TOP, parseInt(Curseconds / 10))
+                addBalls( MARGIN_LEFT + 78 * (RADUIS + 1), MARGITN_TOP, parseInt(Curseconds / 10))
             }
             if (parseInt(Curseconds % 10) !== parseInt(nextSeconds % 10)) {
                 addBalls(MARGIN_LEFT + 93 * (RADUIS + 1), MARGITN_TOP, parseInt(Curseconds % 10))
@@ -269,10 +272,11 @@
     function getCurrentShowTimeSeconds() {
 
         var curTime = new Date()
-        var ret = endTime.getTime() - curTime.getTime()
-        ret = Math.round(ret / 1000)
-
-        return ret > 0 ? ret : 0;
+        var ret=curTime.getHours()*3600+curTime.getMinutes() * 60+curTime.getSeconds()
+//        var ret = endTime.getTime() - curTime.getTime()
+//        ret = Math.round(ret / 1000)
+//        return ret > 0 ? ret : 0;
+        return ret
     }
 
     //    function getTime() {
