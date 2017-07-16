@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Point {
+
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        toString() {
+            return '(' + this.x + ',' + this.y + ')'
+        }
+
+    }
+    let point1 = new Point(2, 3)
+
+
+    console.log(point1.hasOwnProperty('x'));
+    console.log(point1.hasOwnProperty('y'));
+    console.log(point1.hasOwnProperty('toString'));
+    console.log(point1.__proto__.hasOwnProperty('toString'));
+    let arr = [12, 36, 6, 89, 6, 4, 55];
+    let s1 = new Set(arr.sort(function (a,b) {
+        return a-b;
+    }));
+    console.log(s1)
+
+</script>
+</html>

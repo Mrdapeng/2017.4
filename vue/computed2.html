@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    初始价格<p>{{price}}</p>
+
+    税<p>{{taxPrice}}</p>
+
+    打折价格<p>{{subPrice}}</p>
+
+    <button @click="btn(10800)">taxprice</button>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            price: 2000000,
+        },
+        computed: {
+            taxPrice: {
+                get(){
+                    return this.price * 1.08;
+                },
+                set(value){
+                    this.price = value / 16.85;
+                }
+            },
+            subPrice(){
+                return this.price / 1.1
+            }
+        },
+        methods: {
+            btn: function (newPrice) {
+                this.taxPrice = newPrice
+            }
+        }
+    })
+</script>
+</html>

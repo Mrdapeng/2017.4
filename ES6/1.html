@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function People(name,age) {
+        this.name = name
+        this.age = age
+    }
+    People.prototype.say = function () {
+        console.log('i am saying')
+    }
+
+    function student(name,age,stuNum) {
+        People.call(this,name,age);
+        this.stuNum=stuNum;
+    }
+    student.prototype=new People()
+    student.prototype.study=function () {
+        console.log(this)
+        console.log('i am study')
+    }
+
+    let people1=new People('zhangsan',10);
+    console.log(people1);
+    let stud1=new student('stu1',10,20)
+    console.log(stud1);
+
+
+</script>
+</html>

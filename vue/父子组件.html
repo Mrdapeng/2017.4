@@ -6,10 +6,10 @@
 </head>
 <body>
 <div id="app">
-   父亲的属性:_____ <input type="text" v-model="parentMsg">
+   父亲的属性:_____ <input type="text" v-model="parentMsg.name">
     <br>
 
-    孩子的属性:_____<child :my-message="parentMsg"></child>
+    孩子的属性:_____<child :my-message="parentMsg.name"></child>
 </div>
 </body>
 <script src="vue.js"></script>
@@ -21,10 +21,14 @@
 new Vue({
     el:"#app",
     data:{
-        parentMsg:'我是父亲'
+        parentMsg:{
+            name:'hhhh'
+        }
     },
     components:{
         "child":{
+
+
             props:['myMessage'],
 //            template:'<span>{{myMessage}}</span>'
             template:'<input type="text" v-model="myMessage">'

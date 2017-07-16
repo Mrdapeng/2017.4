@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <div class="router-group">
+        <a href="" v-link="{path:'/home'}">home</a>
+        <a href="" v-link="{path:'/about'}">about</a>
+        <a href="" v-link="{path:'/show'}">show</a>
+    </div>
+    <router-view></router-view>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script src="../vue-router.min.js"></script>
+<script>
+    var show = Vue.extend({
+        template: '<p>{{msg3}}</p>',
+        data(){
+            return {
+                msg3:'this is show'
+            }
+        }
+    })
+    var home = Vue.extend({
+        template: '<h1>Home</h1> <br>' +
+        '<span>{{msg}}</span>',
+        data(){
+            return {
+                msg: 'this is home'
+            }
+        }
+    })
+    var about = Vue.extend({
+        template: '<h1>about</h1>' +
+        '<span>{{msg2}}</span>',
+        data(){
+            return {
+                msg2: 'this is about'
+            }
+        }
+    })
+
+
+
+    var router = new VueRouter();
+    router.map({
+        '/home': {component: home},
+        '/about': {component: about},
+        '/show': {component: show},
+
+    })
+
+    router.redirect({'/': '/home'});
+
+    var App = Vue.extend({})
+
+    router.start(App, "#app")
+</script>
+</html>

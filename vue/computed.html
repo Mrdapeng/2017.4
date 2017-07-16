@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+<div id="app">
+    <p>{{cn}}</p>
+    <p>{{hk}}</p>
+    <p>{{us}}</p>
+    <p>{{tax}}</p>
+    <p>{{bitcon}}</p>
+    <p>{{bitcon | toRmb }}</p>
+</div>
+
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            cn: 100,
+        },
+        computed: {
+            hk(){
+                return this.cn * 1.1
+            },
+            us(){
+                return this.cn / 7;
+            },
+            tax(){
+                return this.cn * 1.2;
+            },
+            bitcon(){
+                return this.hk + this.us + this.cn
+            }
+        },
+        filters: {
+            toRmb: function (value) {
+                return value * 100
+            }
+        }
+    })
+</script>
+</html>

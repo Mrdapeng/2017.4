@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <p @click="add(1000)">{{price}}</p>
+    <p>{{taxPrice}}</p>
+    <p>{{subPrice}}</p>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            price: 0,
+            taxPrice: 0,
+            subPrice: 0
+        },
+        methods: {
+            add(value){
+                this.price += value;
+            }
+        },
+        watch: {
+            price(newValue, oldValue){
+                console.log(newValue, oldValue);
+                this.taxPrice = 1.1 * this.price;
+                this.subPrice = 0.9 * this.price;
+            }
+        }
+    })
+    vm.price=1000;
+</script>
+</html>

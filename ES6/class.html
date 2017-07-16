@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class People {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        say() {
+            console.log('myname is ' + this.name);
+        }
+    }
+
+    class Student extends  People{
+        constructor(name, age, id) {
+            super(name, age);
+            this.id = id;
+        }
+
+        study(){
+            console.log(this.name+'is study');
+        }
+    }
+
+    let p1=new People('zhangsan',20);
+    let stu1=new Student('lisi',20,20111);
+    console.log(p1.name)
+    console.log(p1.age)
+    p1.say()
+    console.log(stu1)
+    stu1.say()
+    stu1.study()
+
+</script>
+</html>
