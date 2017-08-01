@@ -1,0 +1,5 @@
+var b=require('./gl.js')
+console.log(b)
+console.log(process.argv)
+console.log(process)
+console.log(process.argv)

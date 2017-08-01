@@ -13,7 +13,7 @@
 <script>
 
     /*data 数字的数组*/
-    digit =
+   var  digit =
         [
             [
                 [0, 0, 1, 1, 1, 0, 0],
@@ -179,6 +179,7 @@
             update()
         }, 50)
 
+
     }
     function addBalls(x, y, num) {
         for (var i = 0; i < digit[num].length; i++) {
@@ -202,7 +203,10 @@
         }
     }
     /*小球函数*/
-
+    function step(){
+            render(context)
+            update()
+    }
     function updateBalls() {
         for (let i = 0; i < balls.length; i++) {
             balls[i].x += balls[i].vx
@@ -321,8 +325,8 @@
         }
     }
     function renderDigit(x, y, num, cxt) {
-        cxt.fillStyle = 'rgb(0,102,153)'
-
+        // cxt.fillStyle = 'rgb(84,92,166)'
+        cxt.fillStyle='#8492A6'
         for (var i = 0; i < digit[num].length; i++) {
             for (var j = 0; j < digit[num][i].length; j++) {
                 if (digit[num][i][j] == 1) {
