@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    setTimeout(()=>{
+    //        console.log('aaa')
+    //    },1000)
+    //    console.log('aa')
+    //    function add( a=1,b=3) {
+    //        return a+b
+    //    }
+    //
+    //    function showResult(fn,str) {
+    //        return str+fn(1,2)
+    //    }
+    //    console.log(showResult(add,'hhh'))
+    //    var  c= [1,23,4,123,4]
+    //    console.log(c.slice(0,-1))
+    //    console.log(c.shift())
+    //    console.log(c.pop())
+    //    console.log(c.unshift(1))
+    //    console.log(c.push(1))
+    //    console.log(c.filter(function (k) {
+    //        return k<20
+    //    }))
+    //    console.log(c.map(function (k,index) {
+    //        return k*2+'__'+index
+    //    }))
+
+    function sp(str) {
+        var str = typeof str !== 'string' ? str.toString() : str,
+            length = Math.ceil(str.length / 3),
+            arr = []
+        for (var i = 0; i < length; i++) {
+            arr.push(str.substr(i * 3, 3))
+        }
+        console.log(arr.join(','))
+    }
+
+    function getstr(str) {
+        var str = typeof  str !== 'string'?str.toString():str,
+            lenth =Math.ceil(str.length/3),
+            arr=[]
+        for (var i = 0; i < lenth; i++) {
+            arr.push(str.substr())
+        }
+
+
+    }
+
+    console.log(sp(123456789))
+</script>
+</html>

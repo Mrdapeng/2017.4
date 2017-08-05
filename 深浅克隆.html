@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function clone(obj) {
+        var buf;
+        if (obj instanceof Array) {
+            buf = []
+            var i = obj.length
+            buf[i] = clone(obj[i])
+        } else if (obj instanceof Object) {
+            buf = {}
+            for (key in obj) {
+                buf[key] = clone(obj[key])
+            }
+            return buf
+        } else {
+            return obj
+        }
+    }
+
+    var a = {
+        1: 'cc',
+        2: {
+            a: "c",
+            b: 12
+        },
+        c: 'ccc'
+    }
+    console.log(clone(a))
+    var div=document.createElement('div')
+    var body=document.body
+    document.appendChild(div)
+    document.removeChild()
+</script>
+</html>

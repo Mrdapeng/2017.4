@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function A() {
+        this.a = 3
+    }
+
+    var a = new A()
+    console.log(a.__proto__)
+    console.log(a.prototype)
+    console.log(A.__proto__)
+    console.log(A.prototype)
+</script>
+</html>

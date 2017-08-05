@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    Array.prototype.quchong=function () {
+        var temp={},result=[]
+        var len =this.length
+        for (var i = 0; i <len; i++) {
+            if(!temp.hasOwnProperty('_'+this.[i]){
+                temp['_'+this.[i]]=1
+                result.push(this[i])
+            }
+        }
+        return result
+    }
+</script>
+</html>

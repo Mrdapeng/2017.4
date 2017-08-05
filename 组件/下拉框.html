@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <input type="text">
+    <button class="btn">button</button>
+</div>
+<div class="content">
+    <ul class="list"></ul>
+</div>
+
+</body>
+<script>
+    var button = document.getElementsByClassName('btn')[0]
+    var ul = document.getElementsByClassName('list')[0]
+    var content = document.getElementsByClassName('content')[0]
+    button.addEventListener('click', function () {
+        var value = document.getElementsByTagName('input')[0].value;
+        console.log(value)
+        if(value){
+            var li = document.createElement('li')
+            li.innerHTML = value+""
+            ul.appendChild(li)
+        }
+        if(content.style.visibility==='hidden'){
+            content.style.visibility=''
+        }else{
+            content.style.visibility='hidden'
+        }
+
+    })
+
+</script>
+</html>
