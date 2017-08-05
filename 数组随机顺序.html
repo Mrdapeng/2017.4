@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = [1, 2, 3, 4]
+
+    function random(arr) {
+        var temp = new Set()
+        while (temp.size < 4) {
+            var key = Math.floor(Math.random() * 4)
+            console.log(key)
+            temp.add(arr[key])
+        }
+        return Array.from(temp)
+    }
+
+    console.log(random(arr))
+</script>
+</html>
