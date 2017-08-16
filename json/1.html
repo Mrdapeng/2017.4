@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    function setlocal() {
+        var seesion={
+            'screen':[],
+            'state':true
+        }
+        seesion.screen.push({"name":'screenA',"width":400,"height":222})
+        seesion.screen.push({"name":'screenA',"width":400,"height":222})
+        seesion.screen.push({"name":'screenA',"width":400,"height":222})
+        seesion.screen.push({"name":'screenA',"width":400,"height":222})
+        localStorage.setItem('seesion',JSON.stringify(seesion))
+    }
+    setlocal()
+</script>
 </html>

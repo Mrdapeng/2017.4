@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    function getcookie(str) {
+        if (document.cookie.length > 0) {
+            var start = document.cookie.indexOf(str)
+            if (start !== -1) {
+                var end = document.cookie.indexOf(';', start)
+                if (end === -1) {
+                    end = document.cookie.length
+                }
+
+                return unescape(document.cookie.substring(start, end))
+            }
+        }
+        return ""
+    }
+
+    document.cookie="rmbp=cool"
+
+</script>
 </html>
