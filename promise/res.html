@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+//    var getJson = function (url) {
+//        var promise = new Promise(function (resolve, reject) {
+//            var client = new XMLHttpRequest();
+//            client.open("GET", url)
+//            client.onreadystatechange = handler
+//            client.responseType = "json"
+//            client.setRequestHeader("Accept", "application/json")
+//            client.send()
+//
+//            function handler() {
+//                if (this.readyState !== 4) {
+//                    return;
+//                }
+//                if (this.status === 200) {
+//                    resolve(this.response)
+//                } else {
+//                    reject(new Error(this.response))
+//                }
+//            }
+//        })
+//
+//        return promise
+//
+//    }
+//
+//    getJson('./1.json').then(function (json) {
+//        console.log('contents' + JSON.stringify(json))
+//    }, function (error) {
+//        console.log('is wrong')
+//    })
+//
+//    var p1 = new Promise(function (resolve, reject) {
+//        setTimeout(function () {
+//            resolve('ok')
+//        }, 3000)
+//    })
+//    var p2 = new Promise(function (resolve, reject) {
+//        resolve(p1)
+//    })
+//    p2.then(function (str) {
+//        console.log('is ok' + str)
+//    }, function () {
+//        console.log('is too bad')
+//    })
+
+    var p3 = new Promise(function (resolve, reject) {
+            reject('is bad')
+            throw new Error('test')
+    })
+    p3.then((res) => {
+        console.log('is ok ')
+    },(erro)=>{
+        console.log(erro)
+    })
+</script>
+</html>

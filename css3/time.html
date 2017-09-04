@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: 200px auto;
+        width: 202px;
+        position: relative;
+    }
+
+    #clock {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000000;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    #clock li {
+        width: 2px;
+        height: 4px;
+        background: #000000;
+        position: absolute;
+        left: 99px;
+        top: 0;
+        list-style: none;
+        -webkit-transform-origin: 1px 100px;
+    }
+
+    #hour{
+        width: 6px;
+        height: 35px;
+        background: #000000;
+        position: absolute;
+        left:98px;
+        top:66px;
+        -webkit-transform-origin:50% 100% ;
+    }
+    #minute{
+        width: 4px;
+        height: 45px;
+        background: #00ff00;
+        position: absolute;
+        left:99px;
+        top:56px;
+        -webkit-transform-origin:50% 100% ;
+    }
+    #second{
+        width: 2px;
+        height: 55px;
+        background: #ff0000;
+        position: absolute;
+        top:46px;
+        left:100px;
+        -webkit-transform-origin:50% 100% ;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <ul id="clock">
+        </ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+</body>
+<script>
+
+
+var oClock =document.getElementById('clock')
+var oSecond=document.getElementById('second')
+var oMinute=document.getElementById('minute')
+var oHour =document.getElementById('hour')
+var html=''
+for(var i=0;i<60;i++){
+    html+='<li style="-webkit-transform:rotate('+i*6+'deg)"></li>'
+}
+oClock.innerHTML=html
+function run (){
+    var data=new Date(),
+        isecond=data.getSeconds(),
+        iMinute=data.getMinutes()+isecond/60,
+        iHour=data.getHours()+iMinute/60
+        oSecond.style.WebkitTransform='rotate('+isecond*6+'deg)'
+        oMinute.style.WebkitTransform='rotate('+iMinute*6+'deg)'
+        oHour.style.WebkitTransform='rotate('+iHour*6+'deg)'
+
+}
+run();
+setInterval(function(){
+run()
+},1000)
+</script>
+
+</html>

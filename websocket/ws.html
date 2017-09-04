@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>echo test</h1>
+<input type="text" id="send">
+<button id="btn">发送</button>
+<div id="recieve"></div>
+</body>
+<script>
+    var ws = new WebSocket("ws://echo.websocket.org/")
+    var recv = document.getElementById('recieve')
+    var inputNode=document.getElementById('send')
+    ws.onopen = function () {
+        console.log('websocket is open ')
+        recv.innerHTML = 'connected'
+    }
+    ws.onclose = function () {
+        console.log('websocket is close')
+        recv.innerHTML = 'is closed'
+    }
+    ws.onmessage = function (e) {
+        console.log(e.data)
+        recv.innerHTML=e.data
+    }
+
+    document.getElementById('btn').onclick=function () {
+        var text =inputNode.value
+        ws.send(text)
+    }
+</script>
+</html>

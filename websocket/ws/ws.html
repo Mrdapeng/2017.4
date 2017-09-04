@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat room</title>
+</head>
+<body>
+
+<h1>echo test</h1>
+<input type="text" id="send">
+<button id="btn">发送</button>
+<div id="msgList">
+    <div id="sts"></div>
+    <ul id="lists"></ul>
+</div>
+</body>
+<script>
+    var ws = new WebSocket('ws://localhost:8001')
+    var sts = document.getElementById('sts')
+    var lists = document.getElementById('lists')
+    var body = document.body
+    body.onkeydown = function (event) {
+        if (event.keyCode === 13 || event.which === 13) {
+            var txt = document.getElementById('send').value
+            if (txt) {
+                ws.send(txt)
+            }
+        }
+    }
+
+    function showMessage(str,type) {
+        var item = document.createElement('li')
+        item.innerHTML = str
+        if(type==='enter'){
+            item.style.color='#00f'
+        }else if(type==='leave'){
+            item.style.color='#f00'
+        }else  if(type==='msg'){
+            item.style.color='#000'
+        }
+
+        lists.appendChild(item)
+    }
+
+    ws.onopen = function () {
+        sts.innerHTML = 'is open'
+        console.log('ws is open')
+        document.getElementById('btn').onclick = function (event) {
+            var txt = document.getElementById('send').value
+            if (txt) {
+                ws.send(txt)
+            }
+        }
+    }
+    ws.onclose = function () {
+        sts.innerHTML = 'is close '
+        console.log('ws is close')
+    }
+    ws.onmessage = function (e) {
+        console.log(e)
+        sts.innerHTML = 'the message is ' + e.data
+        console.log(e.data)
+        var msg =JSON.parse(e.data)
+        showMessage(msg.data,msg.type)
+    }
+</script>
+</html>

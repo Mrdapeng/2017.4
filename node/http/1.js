@@ -38,12 +38,11 @@ var server = http.createServer(
         })
         res.write('<h1>中</h1>')
         res.end()
-// console.log(r、eq.http)
-// console.log(req.header.cookie)
+
     })
     .on('err', function (err) {
         console.log(err)
     })
     .on('listening', function () {
         console.log('is running')
-    }).listen(8080, 'localhost')
+    }).listen(3000, 'localhost')

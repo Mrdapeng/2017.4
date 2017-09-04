@@ -1,6 +1,7 @@
 var http = require('http')
 var url = require('url')
 var fs = require('fs')
+var queryString = require('querystring')
 var HtmlDir = __dirname
 
 function sendData(file, req, res) {
@@ -30,6 +31,25 @@ var server = http.createServer()
             case '/user':
                 sendData('./user.html', req, res)
                 break
+            case '/login':
+                sendData('./login.html', req, res)
+                break
+            case'/login/check':
+                // console.log(req.method)
+                // console.log(queryString.parse(urlstr.query))
+                if(req.method.toUpperCase()==='POST'){
+                    var str=''
+                    req.on('data',function (chunk) {
+                        str+=chunk
+                    })
+                    req.on('end',function () {
+                        console.log(queryString.parse(str))
+                    })
+                }else{
+                    console.log('err')
+                }
+                
+                break
             default:
                 res.writeHead(404, {
                     'content-type': 'text/html;charset=utf-8'
@@ -41,4 +61,4 @@ var server = http.createServer()
     .on('listening', function () {
         console.log('is listening')
     })
-    .listen(8080, 'localhost')
+    .listen(8082, 'localhost')
